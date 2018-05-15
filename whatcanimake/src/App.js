@@ -1,22 +1,38 @@
-
 import React, { Component } from "react";
 import logo from "./logo.svg";
+
 import "./App.css";
 
-const name = 'Josh Perez';
-const element = <h1>Hello, {name} </h1>;
+import axios from "axios";
 
+import ReactDOM from "react-dom";
 
-class App extends Component {
+class App extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     recipes: []
+  //   };
+  // }
+  componentDidMount() {
+    fetch("http://localhost:8000/backend", {
+    })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(myJson) {
+        console.log(myJson.results);
+      });
+  }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro" />
-        </p>
+      <div>
+        <div>Hello World!</div>
+        <h1> test </h1>
+        <p> jdhfkhsgdfk </p>
       </div>
     );
   }
