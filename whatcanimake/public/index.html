@@ -19,13 +19,52 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="./index.css">        
     <title>React App</title>
   </head>
   <body>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
-    <div id="root"></div>
+    <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper">
+                    <ul class="left">
+                        <li>
+                            <a>
+                                <i class="hamburger material-icons hide-on-med-and-up">menu</i>
+                            </a>
+                        </li>
+                    </ul>
+                        <form action="" method="post">
+                            <div class="input-field">
+                                <input id="search" type="search" name="search">
+                                <label class="label-icon" for="search"><i class="material-icons"></i></label>
+                                <i class="material-icons">x</i>
+                            </div>
+                        </form>
+                    <ul class="right">
+                        <li>
+                            <a>
+                                <i class="material-icons"></i>
+                            </a>
+                        </li>
+                        <li class="imgProfil">
+                            <img src="http://maxpixel.freegreatpicture.com/static/photo/1x/Redhead-Girl-Person-People-Woman-Female-Avatar-995164.png" alt="" class="circle">
+                        </li>
+                            <ul id="AccountInfo" class="hidden z-depth-5">
+                                <li>sdfsdf</li>
+                                <li>fghfgh</li>
+                                <li>jkjkljkljkl</li>
+                                <li>xwcxwcwxcwxc</li>
+                            </ul>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+      <div id="root"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -36,5 +75,9 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   </body>
 </html>
+
