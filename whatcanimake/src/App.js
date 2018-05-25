@@ -1,30 +1,28 @@
 import React from "react";
 import "./App.css";
+import axios from "axios";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  // constructor(props) {
+  //   super(props);
 
-     this.state = {
-      recipes: 'gg'
-    };
+  state = {
+    recipes: "gg",
+    recipe: []
+  };
+  componentDidMount() {
+    axios.get("http://localhost:8000/backend").then(response => {
+      console.log(response.data);
+      // this.setState({ recipe: response.data });
+      // console.log(response.json());
+    });
   }
-  fetchfunction() {
-    fetch("http://localhost:8000/backend", {
-    })
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(myJson) {
-        myJson.map(recipe => this.setState({recipes: recipe})
-         console.log(this.state.recipes);
-      }.bind(this));
-  }
+  // }
   render() {
     return (
       <div>
-        <div>{ console.log(this.state["recipes"]) }</div>
-        <h1>{this.fetchfunction()}</h1>
+        <div>{console.log(this.state.recipe)}</div>
+        <h1>{this.componentDidMount()}</h1>
         <p> jdhfkhsgdfk </p>
       </div>
     );
@@ -32,4 +30,3 @@ class App extends React.Component {
 }
 
 export default App;
-
