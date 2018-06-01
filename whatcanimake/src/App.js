@@ -1,32 +1,56 @@
 import React from "react";
 import "./App.css";
-import axios from "axios";
+import { Card, CardHeader, CardImg, CardLink, CardBody } from "reactstrap";
 
-class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-
-  state = {
-    recipes: "gg",
-    recipe: []
-  };
-  componentDidMount() {
-    axios.get("http://localhost:8000/backend").then(response => {
-      console.log(response.data);
-      // this.setState({ recipe: response.data });
-      // console.log(response.json());
-    });
+class FetchFunction extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      recipes: []
+    };
   }
-  // }
+
+  FetchFun() {
+    fetch("http://localhost:8000/backend", {})
+      .then(function(response) {
+        return response.json();
+      })
+      .then(
+        function(myJson) {
+          console.log(myJson);
+          this.setState({
+            recipes: myJson["results"]
+          });
+        }.bind(this)
+      );
+  }
+
+  componentDidMount() {
+    this.FetchFun();
+
+    //this.setState({recipes: fetchFun()});
+  }
+
   render() {
-    return (
-      <div>
-        <div>{console.log(this.state.recipe)}</div>
-        <h1>{this.componentDidMount()}</h1>
-        <p> jdhfkhsgdfk </p>
-      </div>
-    );
+    return this.state.recipes.map(function(recipe) {
+      return (
+        <div>
+          <Card>
+            <CardHeader>
+              <h4>
+                Name: <br /> <b>{recipe["title"]}</b>
+              </h4>
+              <CardBody>
+                <CardLink href={recipe["href"]}>Click Me</CardLink>
+                Ingredients: <br /> <p>{recipe["ingredients"]}</p>
+                <img src={recipe["thumbnail"]} />
+              </CardBody>
+            </CardHeader>
+          </Card>
+        </div>
+      );
+    });
   }
 }
 
-export default App;
+export default FetchFunction;
