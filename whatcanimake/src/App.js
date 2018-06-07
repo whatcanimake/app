@@ -27,8 +27,6 @@ class FetchFunction extends React.Component {
 
   componentDidMount() {
     this.FetchFun();
-
-    //this.setState({recipes: fetchFun()});
   }
 
   render() {

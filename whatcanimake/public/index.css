@@ -47,3 +47,6 @@ nav .right .imgProfil a{
     display: none;
 }
 
+#navbar-show {
+    background-color: white;
+}
